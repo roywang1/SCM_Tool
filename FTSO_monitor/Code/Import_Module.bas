@@ -150,4 +150,24 @@ Sub ImportVisualBasicCode()
     '        End If
         Next oFile
     End If
+    
+    On Error Resume Next
+    ThisWorkbook.VBProject.VBComponents.Remove ThisWorkbook.VBProject.VBComponents("Import_Module_Need_Delete")
+    On Error GoTo 0
+    'Check all Module name are valid
+'    For i = 1 To ThisWorkbook.VBProject.VBComponents.count
+'        If ThisWorkbook.VBProject.VBComponents(i).Type = 1 Then
+'
+'            Module_Name = ThisWorkbook.VBProject.VBComponents(i).CodeModule.Name
+'            last_char = Mid(Module_Name, Len(Module_Name), 1)
+'            If last_char = "1" Then
+'                Module_Name = Mid(Module_Name, 1, Len(Module_Name) - 1)
+'                ThisWorkbook.VBProject.VBComponents(i).Name = Module_Name
+'                'Debug.Print Module_Name
+'            End If
+'        End If
+'    Next
+    
+    
+    ThisWorkbook.Save
 End Sub
